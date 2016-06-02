@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.mphantom.webbridge.ChromeBridgeClient;
@@ -17,10 +18,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         webView = (WebView) findViewById(R.id.webview);
+        WebSettings settings = webView.getSettings();
+        settings.setJavaScriptEnabled(true);
         webView.setWebChromeClient(new ChromeBridgeClient());
-//        webView.setWebViewClient(new WebViewClient(){
-//
-//        });
+        webView.loadUrl("file:///android_asset/main.html");
     }
 
     @Override
@@ -31,11 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 }
