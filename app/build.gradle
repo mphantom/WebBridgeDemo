@@ -21,6 +21,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':webbridge')
     compile rootProject.ext.library["appcompat-v7"]
     compile rootProject.ext.library["constraint-layout"]
     compile rootProject.ext.library["design"]
